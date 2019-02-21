@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = (env) => {
 
     plugins:[new HtmlWebpackPlugin({
-      temmplate: 'src/index.html',
+      template: 'src/index.html',
       filename: 'index.html',
       inject: 'body'
     })]
