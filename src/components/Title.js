@@ -6,13 +6,14 @@ class Title extends React.Component {
   }
 
   render () {
-    return {
+    return (
       <div>
         <h1>To Do</h1>
-        <h2>Things To Do: {this.props.data}</h2>
+        <h2>Things To Do: {this.props.data.length}</h2>
       </div>
-    };
+    );
   }
 
-
 }
+
+export default Title

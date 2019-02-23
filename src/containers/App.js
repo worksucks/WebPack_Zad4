@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './App.css';
 import Title from '../components/Title.js';
+import Todo from '../components/Todo.js';
 import TodoList from '../components/TodoList.js'
 //import TodoList from './components/TodoList.js';
 
@@ -38,9 +39,10 @@ class App extends React.Component {
       return (
           <div className={style.TodoApp}>
               Tutaj pojawią się komponenty naszej aplikacji.
-              <Title/>
-              <TodoList/>
-              </div>
+              <Title data={this.state.data.length}/>
+              <TodoList FuncDelete={this.removeTodo.bind(this)} zmienna={this.state.data}/>
+              <Todo FuncAdd={this.addTodo.bind(this)} />
+          </div>
       );
     }
 
