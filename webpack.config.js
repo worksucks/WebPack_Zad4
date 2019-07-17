@@ -1,10 +1,17 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const OptimizeJsPlugin = require('optimize-js-plugin');
 
 //webpack.config.js
 module.exports = (env) => {
 
-
+    if (env === 'production') {
+      plugins.push(
+        new.OptimizeJSPlugin({
+          sourceMap: false
+        })
+      )
+    }
 
     const environment = env || 'production';
 
@@ -37,11 +44,17 @@ module.exports = (env) => {
         ]
       },
 
-      plugins:[new HtmlWebpackPlugin({
+      plugins:plugins
+      [
+        new HtmlWebpackPlugin({
         template: 'src/index.html',
         filename: 'index.html',
         inject: 'body'
-      })]
+      })
+      new OptimizeJSPlugin({
+        sourceMap: false
+      })
+    ]
 
     }
 };
